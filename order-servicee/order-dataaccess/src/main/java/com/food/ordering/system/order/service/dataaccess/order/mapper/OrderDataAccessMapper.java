@@ -1,5 +1,6 @@
 package com.food.ordering.system.order.service.dataaccess.order.mapper;
 
+import com.domain.ordering.system.domain.valueobject.CustomerId;
 import com.domain.ordering.system.domain.valueobject.OrderId;
 import com.domain.ordering.system.domain.valueobject.ProductId;
 import com.domain.ordering.system.domain.valueobject.RestaurantId;

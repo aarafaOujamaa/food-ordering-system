@@ -16,7 +16,6 @@ import com.food.ordering.system.order.service.domain.ports.input.service.OrderAp
 import com.food.ordering.system.order.service.domain.ports.output.repository.CustomerRepository;
 import com.food.ordering.system.order.service.domain.ports.output.repository.OrderRepository;
 import com.food.ordering.system.order.service.domain.ports.output.repository.RestaurantRepository;
-import org.assertj.core.api.Assert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -29,7 +28,6 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
-import java.util.WeakHashMap;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -148,7 +146,7 @@ public class OrderApplicationServiceTest {
                     .build();
 
             Customer customer = new Customer();
-            customer.setId(new CustemerId(CUSTOMER_ID));
+            customer.setId(new CustomerId(CUSTOMER_ID));
 
             Restaurant restaurantResponse = new Restaurant.Builder()
                     .restaurantId(new RestaurantId(createdOrderCommand.getRestaurantId()))
@@ -173,7 +171,7 @@ public class OrderApplicationServiceTest {
         @Test
         public void testCreateOrder() {
            CreateOrderResponse createOrderResponse = orderApplicationService.createOIrder(createdOrderCommand);
-            Assertions.assertEquals(createOrderResponse.getOrderStatus(), OrderStatus.PENDIND);
+            Assertions.assertEquals(createOrderResponse.getOrderStatus(), OrderStatus.PENDING);
            Assertions.assertEquals(createOrderResponse.getMessgae(), "Order created successfully");
            Assertions.assertNotNull(createOrderResponse.getOrderTrackingId());
         }

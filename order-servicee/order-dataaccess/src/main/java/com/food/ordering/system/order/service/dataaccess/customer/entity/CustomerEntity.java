@@ -1,0 +1,26 @@
+package com.food.ordering.system.order.service.dataaccess.customer.entity;
+
+
+import com.food.ordering.system.order.service.dataaccess.order.entity.OrderItemEntityId;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.IdClass;
+import jakarta.persistence.Table;
+import lombok.*;
+
+import java.util.UUID;
+
+@Getter
+@Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@IdClass(OrderItemEntityId.class)
+@Table(name="order-customer_a_view", schema = "customer")
+@Entity
+public class CustomerEntity {
+    @Id
+    private UUID id;
+
+
+}
